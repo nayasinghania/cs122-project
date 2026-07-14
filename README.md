@@ -2,11 +2,12 @@
 
 ## Authors
 - Naya Singhania
-- Full Name of Author #2
+- Jaden Navidad
 
 ## Description
 
 ## Outline
 - We will use TKinter to create our user interface
 - We will use CSV files to store data pulled from a weather API
-- Author #2 Data analysis and visualizaton plan
+- We will use numpy and scipy to analyze temperature trends over a specific period of time
+- We will represent this data with a time series plot
