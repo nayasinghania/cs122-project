@@ -9,6 +9,8 @@ from popup import open_popup
 def on_close():
     if os.path.exists("weather.csv"):
         os.remove("weather.csv")
+    if os.path.exists("weather.json"):
+        os.remove("weather.json")
     root.destroy()
 
 
