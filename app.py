@@ -43,12 +43,27 @@ root.geometry("1200x800")
 root.configure(bg='white')
 root.protocol("WM_DELETE_WINDOW", on_close)
 
+header = tk.Label(
+    root,
+    text="Weather Analysis",
+    font=("Arial",20,"bold"),
+    bg="lightblue",
+    fg="darkblue",
+    pady=10
+)
+header.pack(fill=tk.X)
+
 city_var = tk.StringVar()
 
 search_location()
 
 popup_button = tk.Button(
-    text="Show Current Weather", command=lambda: open_popup(root, city_var)
+    text="Show Current Weather",
+    font=("Arial", 12),
+    command=lambda: open_popup(root, city_var),
+    bg="lightblue",
+    fg="darkblue",
+    width=20
 )
 
 canvas = None

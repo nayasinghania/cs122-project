@@ -37,7 +37,7 @@ def plot(root, canvas, period):
     plot1.xaxis.set_major_locator(MaxNLocator(10))
     for label in plot1.get_xticklabels():
         label.set_rotation(45)
-        label.set_ha("right")
+        label.set_horizontalalignment("right")
     plot1.legend()
     plot1.grid()
     fig.tight_layout()

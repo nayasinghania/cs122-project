@@ -1,5 +1,5 @@
-import json
 import tkinter as tk
+import json
 from cities import cloud_type
 
 
