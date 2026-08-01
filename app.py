@@ -27,8 +27,21 @@ def submit():
 
 def search_location():
     frame = tk.Frame(root)
-    entry = tk.Entry(frame, textvariable=city_var)
-    button = tk.Button(frame, text="Enter", command=submit)
+    entry = tk.Entry(
+        frame,
+        textvariable=city_var,
+        font=("Arial", 12),
+        bg="lightgrey",
+        fg="black"
+    )
+    button = tk.Button(
+        frame,
+        text="Enter",
+        command=submit,
+        font=("Arial", 12),
+        bg="lightgrey",
+        fg="black"
+    )
 
     frame.pack()
     entry.grid(row=0, column=0)
@@ -47,8 +60,8 @@ header = tk.Label(
     root,
     text="Weather Analysis",
     font=("Arial",20,"bold"),
-    bg="lightblue",
-    fg="darkblue",
+    bg="lightgrey",
+    fg="black",
     pady=10
 )
 header.pack(fill=tk.X)
@@ -61,8 +74,8 @@ popup_button = tk.Button(
     text="Show Current Weather",
     font=("Arial", 12),
     command=lambda: open_popup(root, city_var),
-    bg="lightblue",
-    fg="darkblue",
+    bg="lightgrey",
+    fg="black",
     width=20
 )
 
@@ -72,10 +85,32 @@ dropdown_zoom = tk.Frame(root)
 selected = tk.StringVar(value="7 days")
 selected.trace_add("write", lambda *args: update_plot())
 dropdown = tk.OptionMenu(dropdown_zoom, selected, *options)
-zoom_in = tk.Button(dropdown_zoom, text="+")
-zoom_out = tk.Button(dropdown_zoom, text="-")
+dropdown.config(
+    font=("Arial", 12),
+    bg="lightgrey",
+    fg="black"
+)
+zoom_in = tk.Button(
+    dropdown_zoom,
+    text="+",
+    font=("Arial", 12),
+    bg="lightgrey",
+    fg="black"
+)
+zoom_out = tk.Button(
+    dropdown_zoom,
+    text="-",
+    font=("Arial", 12),
+    bg="lightgrey",
+    fg="black"
+)
 
-save_button = tk.Button(text="Save plot as PNG")
+save_button = tk.Button(
+    text="Save plot as PNG",
+    font=("Arial", 12),
+    bg="lightgrey",
+    fg="black"
+)
 
 popup_button.pack()
 
