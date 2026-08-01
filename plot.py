@@ -1,5 +1,6 @@
 import csv
 import os
+from tkinter import filedialog
 from matplotlib import axes
 import numpy as np
 from matplotlib.figure import Figure
@@ -82,6 +83,20 @@ def zoom_out():
 
     # Redraw the canvas
     current_fig.canvas.draw()
+
+
+def save_plot():
+    global current_fig
+    if current_fig is None:
+        return
+
+    file_path = filedialog.asksaveasfilename(
+        defaultextension=".png",
+        filetypes=[("PNG files", "*.png"), ("All files", "*.*")],
+        initialfile="weather_plot.png"
+    )
+    if file_path:
+        current_fig.savefig(file_path)
 
 
 def plot(root, canvas, period):

@@ -1,7 +1,7 @@
 import tkinter as tk
 import os
 from cities import save_data
-from plot import plot, zoom_in, zoom_out
+from plot import plot, zoom_in, zoom_out, save_plot
 from popup import open_popup
 
 
@@ -136,7 +136,8 @@ save_button = tk.Button(
     text="Save plot as PNG",
     font=("Arial", 12),
     bg="lightgrey",
-    fg="black"
+    fg="black",
+    command=save_plot
 )
 
 popup_button.pack(pady=5)
