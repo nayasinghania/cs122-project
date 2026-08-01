@@ -1,11 +1,11 @@
 import tkinter as tk
-import tkinter.font as tkfont
 import os
-
-from numpy import pad
 from cities import save_data
-from plot import plot
+from plot import plot, zoom_in, zoom_out
 from popup import open_popup
+
+
+original_limits = None
 
 
 def on_close():
@@ -17,8 +17,22 @@ def on_close():
 
 
 def update_plot():
-    global canvas
+    global canvas, original_limits
     canvas = plot(root, canvas, selected.get())
+    # Store original limits after plot is created
+    if canvas and hasattr(canvas,'figure'):
+        ax = canvas.figure.axes[0]
+        original_limits = (ax.get_xlim(), ax.get_ylim())
+
+
+def reset_zoom():
+    global canvas, original_limits
+    if canvas and original_limits:
+        ax = canvas.figure.axes[0]
+        xlim, ylim = original_limits
+        ax.set_xlim(xlim)
+        ax.set_ylim(ylim)
+        canvas.draw()
 
 
 def submit():
@@ -32,15 +46,15 @@ def search_location():
     entry = tk.Entry(
         frame,
         textvariable=city_var,
-        font=("Arial", 14),
-        bg="lightgrey",
+        font=("Arial", 12),
+        bg="white",
         fg="black"
     )
     button = tk.Button(
         frame,
         text="Enter",
         command=submit,
-        font=("Arial", 14),
+        font=("Arial", 12, "bold"),
         bg="lightgrey",
         fg="black"
     )
@@ -76,7 +90,7 @@ search_location()
 
 popup_button = tk.Button(
     text="Show Current Weather",
-    font=("Arial", 14),
+    font=("Arial", 12),
     command=lambda: open_popup(root, city_var),
     bg="lightgrey",
     fg="black",
@@ -90,28 +104,37 @@ selected = tk.StringVar(value="7 days")
 selected.trace_add("write", lambda *args: update_plot())
 dropdown = tk.OptionMenu(dropdown_zoom, selected, *options)
 dropdown.config(
-    font=("Arial", 14),
+    font=("Arial", 12),
     bg="lightgrey",
     fg="black"
 )
-zoom_in = tk.Button(
+zoom_in_button = tk.Button(
     dropdown_zoom,
     text="+",
-    font=("Arial", 14),
+    font=("Arial", 12),
     bg="lightgrey",
-    fg="black"
+    fg="black",
+    command=zoom_in
 )
-zoom_out = tk.Button(
+zoom_out_button = tk.Button(
     dropdown_zoom,
     text="-",
-    font=("Arial", 14),
+    font=("Arial", 12),
     bg="lightgrey",
-    fg="black"
+    fg="black",
+    command=zoom_out
 )
-
+reset_zoom_button = tk.Button(
+    dropdown_zoom,
+    text="Reset",
+    font=("Arial",10),
+    bg="lightgrey",
+    fg="black",
+    command=reset_zoom
+)
 save_button = tk.Button(
     text="Save plot as PNG",
-    font=("Arial", 14),
+    font=("Arial", 12),
     bg="lightgrey",
     fg="black"
 )
@@ -120,8 +143,9 @@ popup_button.pack(pady=5)
 
 dropdown_zoom.pack(pady=5)
 dropdown.grid(row=0, column=0)
-zoom_in.grid(row=0, column=1)
-zoom_out.grid(row=0, column=2)
+zoom_in_button.grid(row=0, column=1,padx=2)
+zoom_out_button.grid(row=0, column=2,padx=2)
+reset_zoom_button.grid(row=0,column=3,padx=2)
 
 save_button.pack(pady=5)
 

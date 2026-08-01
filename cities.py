@@ -56,7 +56,7 @@ def save_data(loc):
 
     with open("weather.csv", "w", newline="", encoding="utf-8") as file:
         writer = csv.writer(file)
-        writer.writerow(["date", "temp_min", "temp_max"])
+        writer.writerow(["date", "temp_max", "temp_min"])
         writer.writerows(
             zip(
                 cleaned["time"],

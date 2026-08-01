@@ -24,9 +24,9 @@ def open_popup(root, city_var):
         text=str(curr["temperature_2m"])
         + " degrees and "
         + cloud_type(curr["cloud_cover"]),
-        font=("Arial", 12),
+        font=("Arial", 16),
         bg="lightgrey",
         fg="black"
     )
-    label.pack()
-    temp.pack()
+    label.pack(pady=20)
+    temp.pack(pady=20)
