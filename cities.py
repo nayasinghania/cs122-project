@@ -65,6 +65,8 @@ def save_data(loc):
             )
         )
 
+    current_weather(loc)
+
 
 def current_weather(loc):
     url = "https://api.open-meteo.com/v1/gfs"

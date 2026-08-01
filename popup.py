@@ -10,13 +10,23 @@ def open_popup(root, city_var):
     popup = tk.Toplevel(root)
     popup.geometry("400x300")
     popup.title("Current Weather")
+    popup.configure(bg="lightgrey")
     city = city_var.get()
-    label = tk.Label(popup, text="Current Weather in " + city)
+    label = tk.Label(
+        popup,
+        text="Current Weather in " + city,
+        font=("Arial", 20,"bold"),
+        bg="lightgrey",
+        fg="black"
+    )
     temp = tk.Label(
         popup,
         text=str(curr["temperature_2m"])
         + " degrees and "
         + cloud_type(curr["cloud_cover"]),
+        font=("Arial", 12),
+        bg="lightgrey",
+        fg="black"
     )
     label.pack()
     temp.pack()
