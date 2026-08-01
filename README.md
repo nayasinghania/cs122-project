@@ -1,8 +1,8 @@
 # Weather Analysis App (CS 122 Summer 2026 Project)
 
 ## Authors
-- Naya Singhania
-- Jaden Navidad
+- Naya Singhania (Web data access and data organization)
+- Jaden Navidad (Data analysis and visualization)
 
 ## Description
 Our CS 122 project will be a historical weather analysis TKinter desktop application. 
