@@ -21,11 +21,14 @@ With this information, they can better understand what future weather may look l
 ## Detailed Description
 This Weather Analysis App generates a historical graph of weather data. Users will be able to enter a US city of their choosing to get a time series plot of low and high temperatures throughout 3 time frames: 7 days, 30 days, and 1 year. Users will not only be able to see how temperatures rise and fall daily but can also view best fit trend lines of the data. They can also zoom in and out of the graph and save the plot as a PNG file onto their device. Additionally, users can also view the current temperature and overcast of their selected city, which will be displayed in a separate popup window.
 
-## Installation Instructions
-install conda python and matplotlib (will elaborate more on in a future edit)
+## Installation and Setup Instructions
+1. Install miniconda by following the instructions as https://www.anaconda.com/docs/getting-started/installation.
+2. Install `matplotlib` with `conda install matplotlib`.
+3. Once in the root of the project, run python app.py to get the application running.
 
 ## Changes/Updates We Would Pursue in the Future
-(clean up later)
-- update ui to be more visually interesting. it's quite bland currently
-- update zoom function so that users can zoom into a specific part of the graph of their choosing, rather than just the middle
-- add more cities?
+- Improve the UI to be more modern and visually appealing
+- Update zoom functionality so that users can zoom into a specific part of the graph of their choosing, rather than just the middle
+- Add current location weather option
+- Add additional city options for weather
+- Add additional information for current weather, such as wind speed, wind direction, and precipitation probability.
