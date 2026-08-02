@@ -121,8 +121,8 @@ def plot(root, canvas, period):
     trend_line_max = np.poly1d(max_coeffs)
     trend_line_min = np.poly1d(min_coeffs)
     x = np.linspace(0, len(dates) - 1, len(dates))
-    plot1.plot(dates, trend_line_max(x), label="High Trend", color="lightcoral", linewidth=2,linestyle='--')
-    plot1.plot(dates, trend_line_min(x), label="Low Trend", color="lightblue", linewidth=2, linestyle='--')
+    plot1.plot(dates, trend_line_max(x), label="High Trend", color="darkred", linewidth=2,linestyle='--',alpha=0.7)
+    plot1.plot(dates, trend_line_min(x), label="Low Trend", color="darkblue", linewidth=2, linestyle='--',alpha=0.7)
 
     plot1.set_xlabel("Date")
     plot1.set_ylabel("Temperature (°F)")
@@ -131,7 +131,7 @@ def plot(root, canvas, period):
         label.set_rotation(45)
         label.set_horizontalalignment("right")
     plot1.legend()
-    plot1.grid()
+    plot1.grid(alpha=0.5)
     fig.tight_layout()
 
     # Store global references for zoom functions

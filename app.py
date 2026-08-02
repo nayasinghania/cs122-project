@@ -46,7 +46,7 @@ def search_location():
     entry = tk.Entry(
         frame,
         textvariable=city_var,
-        font=("Arial", 12),
+        font=("segoe ui", 12),
         bg="white",
         fg="black"
     )
@@ -77,7 +77,7 @@ root.protocol("WM_DELETE_WINDOW", on_close)
 header = tk.Label(
     root,
     text="Weather Analysis",
-    font=("Arial",20,"bold"),
+    font=("Trebuchet MS",20,"bold italic"),
     bg="lightgrey",
     fg="black",
     pady=5
@@ -90,7 +90,7 @@ search_location()
 
 popup_button = tk.Button(
     text="Show Current Weather",
-    font=("Arial", 12),
+    font=("Arial", 12, "bold"),
     command=lambda: open_popup(root, city_var),
     bg="lightgrey",
     fg="black",
@@ -104,14 +104,14 @@ selected = tk.StringVar(value="7 days")
 selected.trace_add("write", lambda *args: update_plot())
 dropdown = tk.OptionMenu(dropdown_zoom, selected, *options)
 dropdown.config(
-    font=("Arial", 12),
+    font=("Arial", 12, "bold"),
     bg="lightgrey",
     fg="black"
 )
 zoom_in_button = tk.Button(
     dropdown_zoom,
     text="+",
-    font=("Arial", 12),
+    font=("Arial", 12, "bold"),
     bg="lightgrey",
     fg="black",
     command=zoom_in
@@ -119,7 +119,7 @@ zoom_in_button = tk.Button(
 zoom_out_button = tk.Button(
     dropdown_zoom,
     text="-",
-    font=("Arial", 12),
+    font=("Arial", 12, "bold"),
     bg="lightgrey",
     fg="black",
     command=zoom_out
@@ -127,14 +127,14 @@ zoom_out_button = tk.Button(
 reset_zoom_button = tk.Button(
     dropdown_zoom,
     text="Reset",
-    font=("Arial",10),
+    font=("Arial",12,"bold"),
     bg="lightgrey",
     fg="black",
     command=reset_zoom
 )
 save_button = tk.Button(
     text="Save plot as PNG",
-    font=("Arial", 12),
+    font=("Arial", 12, "bold"),
     bg="lightgrey",
     fg="black",
     command=save_plot
