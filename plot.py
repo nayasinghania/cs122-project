@@ -13,7 +13,6 @@ PERIOD_DAYS = {"7 days": 7, "30 days": 30, "1 year": 365}
 current_ax = None
 current_fig = None
 
-
 def read_weather_data():
     dates, temp_min, temp_max = [], [], []
     with open("weather.csv", newline="", encoding="utf-8") as file:
@@ -111,6 +110,7 @@ def plot(root, canvas, period):
     temp_min = temp_min[-days:]
     temp_max = temp_max[-days:]
 
+
     fig = Figure(figsize=(12, 8), dpi=100)
     plot1 = fig.add_subplot(111)
     plot1.plot(dates, temp_max, label="High", color="red", linewidth=2)
@@ -121,8 +121,13 @@ def plot(root, canvas, period):
     trend_line_max = np.poly1d(max_coeffs)
     trend_line_min = np.poly1d(min_coeffs)
     x = np.linspace(0, len(dates) - 1, len(dates))
-    plot1.plot(dates, trend_line_max(x), label="High Trend", color="darkred", linewidth=2,linestyle='--',alpha=0.7)
+    plot1.plot(dates, trend_line_max(x), label="High Trend", color="darkred", linewidth=2,linestyle='--',alpha=0.7,)
     plot1.plot(dates, trend_line_min(x), label="Low Trend", color="darkblue", linewidth=2, linestyle='--',alpha=0.7)
+
+    average_high = float(np.mean(temp_max))
+    average_low = float(np.mean(temp_min))
+    plot1.axhline(average_high, color="red", linewidth=2,alpha=0.3,label=f'Avg High: {average_high:.1f} °F')
+    plot1.axhline(average_low, color="blue", linewidth=2,alpha=0.3,label=f'Avg Low: {average_low:.1f} °F')
 
     plot1.set_xlabel("Date")
     plot1.set_ylabel("Temperature (°F)")
