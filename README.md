@@ -24,7 +24,8 @@ This Weather Analysis App generates a historical graph of weather data. Users wi
 ## Installation and Setup Instructions
 1. Install miniconda by following the instructions as https://www.anaconda.com/docs/getting-started/installation.
 2. Install `matplotlib` with `conda install matplotlib`.
-3. Once in the root of the project, run `python app.py` to get the application running.
+3. Install `requests` with `conda install requests`.
+4. Once in the root of the project, run `python app.py` to get the application running.
 
 ## Changes/Updates We Would Pursue in the Future
 - Improve the UI to be more modern and visually appealing
